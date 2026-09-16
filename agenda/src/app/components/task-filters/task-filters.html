@@ -1,0 +1,61 @@
+<section class="filters">
+
+  <div class="filter">
+    <label>Status</label>
+
+    <select
+      [(ngModel)]="filters.status"
+      (change)="changeFilters()">
+
+      <option value="todas">Todas</option>
+      <option value="pendentes">Pendentes</option>
+      <option value="concluidas">Concluídas</option>
+
+    </select>
+  </div>
+
+  <div class="filter">
+    <label>Categoria</label>
+
+    <select
+      [(ngModel)]="filters.category"
+      (change)="changeFilters()">
+
+      <option value="todas">Todas</option>
+      <option value="Estudos">Estudos</option>
+      <option value="Trabalhos">Trabalhos</option>
+      <option value="Pessoal">Pessoal</option>
+
+    </select>
+  </div>
+
+  <div class="filter">
+    <label>Prioridade</label>
+
+    <select
+      [(ngModel)]="filters.priority"
+      (change)="changeFilters()">
+
+      <option value="todas">Todas</option>
+      <option value="baixa">Baixa</option>
+      <option value="media">Média</option>
+      <option value="alta">Alta</option>
+
+    </select>
+  </div>
+
+  <div class="filter">
+    <label>Ordenar</label>
+
+    <select
+      [(ngModel)]="filters.sort"
+      (change)="changeFilters()">
+
+      <option value="recentes">Mais recentes</option>
+      <option value="prazo">Prazo</option>
+      <option value="prioridade">Prioridade</option>
+
+    </select>
+  </div>
+
+</section>

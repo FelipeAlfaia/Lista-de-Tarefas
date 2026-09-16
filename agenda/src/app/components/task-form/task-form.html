@@ -1,0 +1,115 @@
+<div class="form">
+
+  <div class="form-header">
+
+    <div>
+      <h2>
+        {{ editingTask ? 'Editar tarefa' : 'Nova tarefa' }}
+      </h2>
+
+      <p>
+        Preencha as informações abaixo.
+      </p>
+    </div>
+
+    <button
+      class="close"
+      type="button"
+      (click)="cancel.emit()">
+
+      ×
+
+    </button>
+
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="field">
+
+      <label>Título</label>
+
+      <input
+        type="text"
+        formControlName="title"
+        placeholder="Ex.: Estudar matemática">
+
+    </div>
+
+    <div class="field">
+
+      <label>Descrição</label>
+
+      <textarea
+        formControlName="description"
+        placeholder="Descreva a tarefa...">
+      </textarea>
+
+    </div>
+
+    <div class="row">
+
+      <div class="field">
+
+        <label>Categoria</label>
+
+        <select formControlName="category">
+
+          <option value="Estudos">Estudos</option>
+          <option value="Trabalhos">Trabalhos</option>
+          <option value="Pessoal">Pessoal</option>
+
+        </select>
+
+      </div>
+
+      <div class="field">
+
+        <label>Prioridade</label>
+
+        <select formControlName="priority">
+
+          <option value="baixa">Baixa</option>
+          <option value="media">Média</option>
+          <option value="alta">Alta</option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+    <div class="field">
+
+      <label>Prazo</label>
+
+      <input
+        type="date"
+        formControlName="dueDate">
+
+    </div>
+
+    <div class="form-actions">
+
+      <button
+        type="button"
+        class="cancel"
+        (click)="cancel.emit()">
+
+        Cancelar
+
+      </button>
+
+      <button
+        type="submit"
+        class="save">
+
+        {{ editingTask ? 'Salvar alterações' : 'Adicionar tarefa' }}
+
+      </button>
+
+    </div>
+
+  </form>
+
+</div>

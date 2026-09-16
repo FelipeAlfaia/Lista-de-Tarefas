@@ -1,0 +1,71 @@
+<article
+  class="task-card"
+  [class.completed]="task.completed">
+
+  <div class="task-content">
+
+    <div class="task-top">
+
+      <span class="category">
+        {{ task.category }}
+      </span>
+
+      <span
+        class="priority"
+        [class.high]="task.priority === 'alta'"
+        [class.medium]="task.priority === 'media'"
+        [class.low]="task.priority === 'baixa'">
+
+        {{ priorityLabel }}
+
+      </span>
+
+    </div>
+
+    <h3>{{ task.title }}</h3>
+
+    <p>{{ task.description }}</p>
+
+    <div class="deadline">
+
+      <span>
+        Prazo: {{ task.dueDate | date:'dd/MM/yyyy' }}
+      </span>
+
+      @if (isOverdue) {
+        <strong>Atrasada</strong>
+      }
+
+    </div>
+
+  </div>
+
+  <div class="actions">
+
+    <button
+      class="complete"
+      (click)="toggle.emit(task.id)">
+
+      {{ task.completed ? 'Reabrir' : 'Concluir' }}
+
+    </button>
+
+    <button
+      class="edit"
+      (click)="edit.emit(task)">
+
+      Editar
+
+    </button>
+
+    <button
+      class="delete"
+      (click)="delete.emit(task.id)">
+
+      Excluir
+
+    </button>
+
+  </div>
+
+</article>

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@angular/elements": "^22.1.6"
+  }
+}

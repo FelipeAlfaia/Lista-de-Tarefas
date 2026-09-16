@@ -1,0 +1,111 @@
+<div class="page">
+
+  <header class="header">
+
+    <div>
+
+      <span class="eyebrow">
+        ORGANIZAÇÃO
+      </span>
+
+      <h1>
+        Minhas tarefas
+      </h1>
+
+      <p>
+        Organize suas atividades e acompanhe seu progresso.
+      </p>
+
+    </div>
+
+    <button
+      class="new-task"
+      (click)="openNewTask()">
+
+      + Nova tarefa
+
+    </button>
+
+  </header>
+
+  <main>
+
+    <app-task-summary
+      [tasks]="tasks">
+    </app-task-summary>
+
+    <app-task-filters
+      (filtersChange)="updateFilters($event)">
+    </app-task-filters>
+
+    <div class="tasks-header">
+
+      <h2>
+        Tarefas
+      </h2>
+
+      <span>
+        {{ filteredTasks.length }}
+        tarefa(s)
+      </span>
+
+    </div>
+
+    @if (filteredTasks.length > 0) {
+
+      <div class="task-list">
+
+        @for (task of filteredTasks; track task.id) {
+
+          <app-task-card
+            [task]="task"
+            (edit)="openEditTask($event)"
+            (delete)="deleteTask($event)"
+            (toggle)="toggleTask($event)">
+          </app-task-card>
+
+        }
+
+      </div>
+
+    } @else {
+
+      <div class="empty">
+
+        <h3>
+          Nenhuma tarefa encontrada
+        </h3>
+
+        <p>
+          Tente alterar os filtros ou adicione uma nova tarefa.
+        </p>
+
+      </div>
+
+    }
+
+  </main>
+
+</div>
+
+@if (showForm) {
+
+  <div
+    class="modal"
+    (click)="closeForm()">
+
+    <div
+      class="modal-content"
+      (click)="$event.stopPropagation()">
+
+      <app-task-form
+        [editingTask]="editingTask"
+        (save)="saveTask($event)"
+        (cancel)="closeForm()">
+      </app-task-form>
+
+    </div>
+
+  </div>
+
+}
