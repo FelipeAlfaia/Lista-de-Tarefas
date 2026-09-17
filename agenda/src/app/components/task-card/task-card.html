@@ -2,8 +2,11 @@
   class="task-card"
   [class.completed]="task.completed">
 
-  @if (task.completed) {
-  <span class="completed-check">✓</span>
+@if (task.completed) {
+  <span class="completed-badge">
+    <span class="check">✓</span>
+    Concluída
+  </span>
 }
 
   <div class="task-content">
