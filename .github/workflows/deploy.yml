@@ -45,7 +45,7 @@ jobs:
       - name: Preparar arquivos
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./agenda/dist/lista-de-tarefas/browser
+        path: ./agenda/dist/agenda/browser
 
       - name: Publicar
         id: deployment
