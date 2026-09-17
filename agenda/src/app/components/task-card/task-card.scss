@@ -1,18 +1,15 @@
 .task-card {
+  position: relative;
   display: flex;
   justify-content: space-between;
   gap: 24px;
-
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
-
   padding: 22px;
-
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-
   margin-bottom: 14px;
 }
 
@@ -22,12 +19,23 @@
 }
 
 .task-card.completed {
-  opacity: 0.65;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.12);
 }
 
 .task-card.completed h3 {
   text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  color: #166534;
 }
+
+.task-card.completed p {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  color: #4b7c5b;
+}
+
 
 .task-content {
   flex: 1;
@@ -133,4 +141,26 @@ button {
   .actions {
     flex-direction: row;
   }
+}
+
+.completed-check {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #22c55e;
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  box-shadow: 0 3px 8px rgba(34, 197, 94, 0.25);
 }
